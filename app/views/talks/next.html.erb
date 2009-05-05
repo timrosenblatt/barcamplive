@@ -1,0 +1,20 @@
+<h2>Upcoming talks for each venue</h2>
+
+<table>
+  <tr>
+    <th scope='col'>Time</th>
+    <th scope='col'>Speaker</th>
+    <th scope='col'>Topic</th>
+    <th scope='col'>Venue</th>
+  </tr>
+  
+  <% @upcoming_talks.each do |talk| %>
+    <tr>
+      <td><%=h talk.starts_at.to_s(:time) %></td>
+      <td><%=h talk.speaker %></td>
+      <td><%=h talk.topic %></td>
+      <td><%=h talk.venue.name %></td>
+    </tr>
+  <% end %>
+  
+</table>

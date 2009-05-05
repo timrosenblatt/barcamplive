@@ -15,6 +15,7 @@
 
       <div id="navigation">
         <ul>
+          <li><a href='/next'>What's next?</li>
           <% Venue.find(:all, :order => 'id').each do |venue| %>
             <li><%= link_to_unless_current venue.name, venue_path(venue, :anchor => 'schedule') %></li>
           <% end %>

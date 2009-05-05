@@ -1,7 +1,13 @@
 class TalksController < ApplicationController
-  before_filter :find_venue
+  before_filter :find_venue, :except => %w(next)
   before_filter :find_talk, :only => %w(edit update destroy)
 
+  def next
+    @upcoming_talks = Venue.all.collect do |v|
+      v.talks.first(:conditions => ["starts_at > ?", Time.now], :order => "starts_at ASC")
+    end.compact
+  end
+  
   # GET /venues/1/talks
   # GET /venues/1/talks.xml
   def index

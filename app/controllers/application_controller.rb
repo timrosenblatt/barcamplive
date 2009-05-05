@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '899abf093c3f8f06fc8860c27936a25b'
 
-  before_filter :verify_access, :except => %w(index show)
+  before_filter :verify_access, :except => %w(index show next)
 
   def login
     verify_access and redirect_to root_path
